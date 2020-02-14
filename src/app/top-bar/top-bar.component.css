@@ -1,0 +1,34 @@
+#top-bar{
+    display: inline-flex;
+    background-color: #1f4973;
+    width: 100%;
+    margin-bottom: 2em;
+    color:white;
+}
+#top-bar >div{
+    width:33%;
+    vertical-align: top;
+}
+
+.title{
+    margin:0 auto;
+    text-align: center;
+}
+.appartionUser{
+    display: inline-flex;
+    text-align: center;
+}
+.appartionUser span{
+    margin: 0 2em;
+    vertical-align: center;
+    width: 33%;
+}
+
+span h2{
+    margin: 0em;
+    margin-top: 0.4em;
+    margin-bottom: 0.5em;
+}
+span h3{
+    margin: 0em;
+}
