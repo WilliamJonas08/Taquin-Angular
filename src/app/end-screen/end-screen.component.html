@@ -4,22 +4,10 @@
 
 <div id="global">
     <span id="span1">
-        <!-- <form  [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value.name)">
-            <div id="text-form">
-                <p> Félicitations ! <br> Vous avez réussi le jeu en {{transfertDataService.counter}} clicks. <br> Enregistres toi pour connaitre ton classement parmis les meilleurs mondiaux !</p>
-            </div>
-
-            <div>
-            <label for="name">Name</label>
-            <input id="name" type="text" formControlName="name"  value="Enter your Pseudo">
-            </div>
-            <div class="form-button-container" ><button class="form-button" type="submit">REGISTER</button></div>
-        </form> -->
-
         <nav id="buttons">
-            <span><a routerLink=""><button>REJOUER</button></a></span>
+            <span><a routerLink="" (click)="rejouer()"><button>REJOUER</button></a></span>
             <span><a href="https://www.rofim.fr/" target="_blank"><button>ROFIM</button></a></span>
-            <span><button (click)="store.resetdata()" >RESET DATA</button></span>
+            <span><button (click)="this.store.resetdata()" >RESET DATA</button></span>
             <!--if user = admin Rofim -> button reset data -->
         </nav>
     </span>

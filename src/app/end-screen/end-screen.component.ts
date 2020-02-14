@@ -24,7 +24,7 @@ export class EndScreenComponent implements OnInit {
 
 
   constructor(
-    private store: Store,
+    public store: Store,
     private routingService: RoutingService,
     // private newGame: newGame,
     ) {
@@ -43,4 +43,9 @@ export class EndScreenComponent implements OnInit {
       this.victories=this.store.currentUser.victories
     })
   }
+
+  rejouer(){
+    this.store.createNewUser("")
+  }
+
 }

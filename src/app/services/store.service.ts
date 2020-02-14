@@ -69,16 +69,31 @@ createNewUser(customerData){
 }
 
 //Teste si nouvel utilisateur
-isNewUser(username:string):boolean{
+isNewUser(username:string): boolean{
   let tabDonnees=this.getData()
   // Username pas dans la bdd ?
-  if (tabDonnees[username]===undefined){
-    return true
+  for (let i:number = 0; i < tabDonnees.length; i++) {
+    //On teste si le username apparait dans la BDD
+    if (tabDonnees[i].username===username){
+      return false
+    }   
   }
-  else{
-    return false
-  }
+  return true
 }
+
+indexUser(username:string):number{
+  let tabDonnees=this.getData()
+  if (!this.isNewUser(username)){
+    for (let index:number = 0; index < tabDonnees.length; index++) {
+      if (tabDonnees[index].username===username){
+        return index
+      }   
+    }
+  }
+  console.log("gros problème indexUser")
+  return (-1)
+}
+
 
 //Teste l'existence d'un array (ici de la bdd)
 // Pas utile si tjr array vide au moins
@@ -101,8 +116,15 @@ getVictories(username:string):number{
     return 0
   }
   else{
-    return tabDonnees[username].victories
+    let indexUser = this.indexUser(username)
+    for (let i:number = 0; i < tabDonnees.length; i++) {
+      if (tabDonnees[i].username===username){
+        return tabDonnees[indexUser].victories
+      }   
+    }
   }
+  console.log("gros problème get Victories")
+  return (-1)  
 }
 //Attention: la fonction récupère les victoires dans la BDD et non pas dans currentUser
 
@@ -116,7 +138,7 @@ majVictories(username:string):void{
   let tabDonnees=this.getData()
   tabDonnees.forEach(donnee => {
       if (donnee.username===username){
-        donnee.victories++
+        donnee.victories+=1
       }
     })
   localStorage.clear()

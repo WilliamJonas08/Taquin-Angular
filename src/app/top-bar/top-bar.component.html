@@ -1,6 +1,6 @@
 <div id="top-bar">
 
-    <div *ngIf="this.store.currentUser">
+    <div *ngIf='(this.username) && (this.username !==" ") '>
         <!-- Sert à équilibrer l'espace -->
     </div>
 
@@ -8,20 +8,20 @@
         <h1>{{title}}</h1>
     </div>
 
-    <div *ngIf="this.store.currentUser" class="appartionUser">
+    <div *ngIf='(this.username) && (this.username !==" ") '  class="appartionUser"> <!--Teste l'existence d'un currentUser-->
         <span class="username">
             <h2>Username</h2>
-            <h3>{{this.store.currentUser.username}}</h3>  <!--importe les données de manière directe-->
+            <h3>{{this.username}}</h3>  <!--importe les données de manière directe-->
         </span>
     
         <span class="counter">
             <h2>Clicks</h2>
-            <h3>{{this.store.currentUser.score}}</h3>  <!--importe les données de manière directe-->
+            <h3>{{this.score}}</h3>  <!--importe les données de manière directe-->
         </span>
         
         <span class="victories">
             <h2>Victoires</h2>
-            <h3>{{this.store.currentUser.victories}}</h3>   <!--importe les données de manière directe-->
+            <h3>{{this.victories}}</h3>   <!--importe les données de manière directe-->
         </span>
     </div>
 </div>
