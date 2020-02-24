@@ -9,10 +9,10 @@ h1{
 
 
 /* DIVISER LE TAB EN 2 SPAN  */
-#global{
+mat-sidenav-container{
     text-align: center;
 }
-#global > span{
+mat-sidenav-container > span{/*Plus très utile sans span*/
     display: inline-block;
     vertical-align: top;    /*Cette fonction est géniale !!!*/
     margin: auto 1em auto 1em;
@@ -85,6 +85,7 @@ form {
 /* COPIÉ COLLÉ DE DESKCOMPONENT (PARTIEL) */
 #buttons{
     text-align:center;
+    background-color: white;
 }
 #buttons button{
     text-align: center;

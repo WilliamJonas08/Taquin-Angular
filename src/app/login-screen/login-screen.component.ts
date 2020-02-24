@@ -45,38 +45,3 @@ export class LoginScreenComponent implements OnInit{
   }
 
 }
-
-//Ancien code création new user
-
-
-
-
-//     // //Test existence BDD
-//     //   //Si la BDD n'existe pas déja, on la crée
-//     //   if(!this.store.ifTabExist(tabDonnees)){
-//     //     this.store.createFirstData()
-//     //   }
-
-        
-//       //Test existence username utilisateur pour récupérer les victoires précédentes (désormais la BDD existe dans tous les cas)
-//       //Instantiation des données utilisateur pour la partie
-//       this.store.currentUser=new User(customerData,0,0)
-
-// //RÉPÉTITION D'INSTANTIATION ?... (JUSTE POUR PARTIE RÉACTIVE)
-//       this.store.updateUsername(customerData)
-//         // this.newGame.usernameObserver.next(customerData)
-//       this.store.updateScore(0)
-//         // this.newGame.scoreObserver.next(0)
-
-//       if (this.store.isNewUser(customerData)){
-
-// //RÉPÉTITION D'INSTANTIATION ?... (JUSTE POUR PARTIE RÉACTIVE)
-//           this.store.updateVictories(0)
-//             // this.newGame.victoriesObserver.next(0)
-//       }
-//       if(!this.store.isNewUser(customerData)){
-//             /*this.store.currentUser=new User(customerData,0,this.store.getVictories(customerData))*/
-        
-//           this.store.updateVictories(this.store.getVictories(customerData))
-//             //this.newGame.victoriesObserver.next(this.store.getVictories(customerData))
-//       }

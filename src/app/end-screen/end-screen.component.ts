@@ -4,7 +4,7 @@ import { User } from '../user';
 import { TranslatePipe } from '../pipes/translate.pipe';
 import { RoutingService } from '../services/routing.service';
 
-import { newGame } from '../user-observable';
+// import { newGame } from '../user-observable';
 
 @Component({
   selector: 'app-end-screen',
@@ -37,10 +37,10 @@ export class EndScreenComponent implements OnInit {
       this.routingService.goToLogin()
     }
     //subscribes 
-    this.store.userSubject.subscribe((user)=> {
+    this.store.userSubject.subscribe((user:User)=> {
       this.username=user.username
-      this.score=this.store.currentUser.score
-      this.victories=this.store.currentUser.victories
+      this.score=user.score
+      this.victories=user.victories
     })
   }
 

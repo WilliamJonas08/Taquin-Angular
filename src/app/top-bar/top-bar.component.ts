@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from 'src/app/services/store.service'
+import { User } from '../user';
+
 
 // import { User } from '../user';
 // import { newGame } from '../user-observable';
@@ -24,10 +26,10 @@ export class TopBarComponent implements OnInit {
 
   ngOnInit() {
     //subscribes 
-    this.store.userSubject.subscribe(()=> {
-      this.username=this.store.currentUser.username
-      this.score=this.store.currentUser.score
-      this.victories=this.store.currentUser.victories
+    this.store.userSubject.subscribe((user:User)=> {
+      this.username=user.username
+      this.score=user.score
+      this.victories=user.victories
     })       
   }
 

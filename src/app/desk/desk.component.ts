@@ -2,18 +2,18 @@ import { Component, OnInit} from '@angular/core';
 import { Piece } from '../piece';
 import { Store } from 'src/app/services/store.service'; //on ajoute la donnée au service TransefertData (BDD interne)
 // import { RouterModule, Routes, Router } from '@angular/router';        //ROUTER
-import { Subject } from 'rxjs';
+// import { Subject } from 'rxjs';
 import { RoutingService } from '../services/routing.service';
 
 // import { newGame } from '../user-observable';
 
 @Component({
   selector: 'app-desk',
-  templateUrl: './desk.component.html',
-  styleUrls: ['./desk.component.css']
+  templateUrl: './desk.component copy.html',
+  styleUrls: ['./desk.component copy.css']
 })
 export class DeskComponent implements OnInit {
-  //CurrentUser properties
+  //CurrentUser properties -> JE NE SAIS PAS À QUOI ILS SERVENT SUR CE COMPOSANT
   username: string
   score: number
   victories: number
@@ -40,10 +40,10 @@ export class DeskComponent implements OnInit {
       this.routingService.goToLogin()
     }
     //subscribes 
-    this.store.userSubject.subscribe(()=> {
-    this.username=this.store.currentUser.username
-    this.score=this.store.currentUser.score
-    this.victories=this.store.currentUser.victories
+    this.store.userSubject.subscribe((user)=> {
+    this.username=user.username
+    this.score=user.score
+    this.victories=user.victories
     })
     //initialisation du jeu: mélange (contient la fonction init)
     this.melange()
@@ -56,8 +56,10 @@ export class DeskComponent implements OnInit {
     }
     this.idNoir = 8;
     this.victoire=false; // Voire implementations
+    console.log(this.store.currentUser)
+    console.log(this.store.currentUser.score)
     this.store.currentUser.score=0
-    this.store.userSubject.next()
+    this.store.userSubject.next(this.store.currentUser)
     this.store.message =""
   }
 

@@ -1,5 +1,7 @@
-h1{
-    text-align:center;
-    color:#1f4973;
-    font-style: bold;
+mat-card{
+    margin:5em;
+    background-color: white;
+    padding:0px 0px 2em 0px;
+    border-radius: 20px;
+
 }

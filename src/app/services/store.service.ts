@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 // import { Observable, of } from 'rxjs';
 import { User } from '../user';
-// import { RoutingService } from './routing.service';
+import { RoutingService } from './routing.service';
 import { Subject } from 'rxjs';
 
 
@@ -16,7 +16,7 @@ export class Store{
   userSubject: Subject<User>= new Subject()
 
   constructor(
-    // private routingService: RoutingService,
+    private routingService: RoutingService,
   ) { 
     //Subscribes
     //A REVOIR PROBABLEMENT
@@ -51,8 +51,8 @@ addData (username:string, score:number, victories:number ):void{
 //Cette fonction devrait être appellee par un utilisateur admin (ne pas raffraichir la page après avoir reset)
 resetdata= function():void{
   // this.currentUser= new User('',0,0)//utile ?
-  this.routingService.goToLogin(),
-  localStorage.clear();
+  localStorage.clear()
+  this.routingService.goToLogin()
   // this.createFirstData() //utile ?
 }
 
@@ -65,6 +65,7 @@ createNewUser(customerData){
       //Instantiation des données utilisateur pour la partie
   let victories = this.getVictories(customerData)
   this.currentUser=new User(customerData,0,victories)
+  console.log(this.currentUser)
   this.userSubject.next(this.currentUser)
 }
 
@@ -130,7 +131,7 @@ getVictories(username:string):number{
 
 scoreUp(){
   this.currentUser.score++
-  this.userSubject.next()
+  this.userSubject.next(this.currentUser)
 }
 
 // Augmente le nombre de victoire d'un utilisateur (pour chacune de ses parties) de 1
@@ -145,7 +146,7 @@ majVictories(username:string):void{
   localStorage.setItem('monTableau', JSON.stringify(tabDonnees))
   //Pour l'affichage top-bar final, on modifie currentUser (même si il ne sera plus utilisé désormais)
   this.currentUser.victories++
-  this.userSubject.next()
+  this.userSubject.next(this.currentUser)
 }
 }
 

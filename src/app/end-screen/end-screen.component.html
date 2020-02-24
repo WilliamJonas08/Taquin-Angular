@@ -1,18 +1,16 @@
 <h1>{{ "Congratulations" | Translate}}</h1>
 
-<p> Félicitations ! <br> Vous avez réussi le jeu en {{store.currentUser.score}} clicks. <br> Enregistres toi pour connaitre ton classement parmis les meilleurs mondiaux !</p>
+<p *ngIf="this.store.currentUser"> Félicitations ! <br> Vous avez réussi le jeu en {{this.store.currentUser.score}} clicks. <br> Enregistres toi pour connaitre ton classement parmis les meilleurs mondiaux !</p>
 
-<div id="global">
-    <span id="span1">
-        <nav id="buttons">
+<mat-sidenav-container id="global">
+        <mat-sidenav-content id="buttons">
             <span><a routerLink="" (click)="rejouer()"><button>REJOUER</button></a></span>
             <span><a href="https://www.rofim.fr/" target="_blank"><button>ROFIM</button></a></span>
             <span><button (click)="this.store.resetdata()" >RESET DATA</button></span>
             <!--if user = admin Rofim -> button reset data -->
-        </nav>
-    </span>
-
-    <span id="span2">
+        <!-- </mat-sidenav-content> -->
+ 
+    <!-- <mat-sidenav position="end" value = "push" ( ngModel) = "ouvert">     -->
         <div class="h2"><h2>Leaderboard</h2></div>
 
         <!--Première victoire-->
@@ -39,5 +37,6 @@
                 <span class="p2"><p>Victoires: {{donnee.victories}}</p></span>
             </div>
         </div>
-    </span>
-</div>
+    </mat-sidenav-content> <!--A SUPPRIMER ENSUITE-->
+    <!-- </mat-sidenav> -->
+</mat-sidenav-container>
